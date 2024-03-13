@@ -24,7 +24,7 @@
 
 #define XDRV_06                   6
 
-const uint32_t SFB_TIME_AVOID_DUPLICATE = 2000;  // Milliseconds
+const uint32_t SFB_TIME_AVOID_DUPLICATE = 250;  // Milliseconds
 
 enum SonoffBridgeCommands {
   CMND_RFSYNC, CMND_RFLOW, CMND_RFHIGH, CMND_RFHOST, CMND_RFCODE };
