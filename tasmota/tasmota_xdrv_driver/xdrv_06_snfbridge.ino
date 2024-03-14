@@ -24,7 +24,7 @@
 
 #define XDRV_06                   6
 
-const uint32_t SFB_TIME_AVOID_DUPLICATE = 250;  // Milliseconds
+const uint32_t SFB_TIME_AVOID_DUPLICATE = 10;  // Milliseconds
 
 enum SonoffBridgeCommands {
   CMND_RFSYNC, CMND_RFLOW, CMND_RFHIGH, CMND_RFHOST, CMND_RFCODE };
@@ -190,6 +190,8 @@ void SonoffBridgeLearnFailed(void)
 
 void SonoffBridgeReceived(void)
 {
+  AddLog(LOG_LEVEL_DEBUG, "#SonoffBridgeReceived");
+
   uint16_t sync_time = 0;
   uint16_t low_time = 0;
   uint16_t high_time = 0;
