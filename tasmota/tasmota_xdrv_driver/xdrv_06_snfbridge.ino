@@ -24,7 +24,7 @@
 
 #define XDRV_06                   6
 
-const uint32_t SFB_TIME_AVOID_DUPLICATE = 10;  // Milliseconds
+const uin t32_t SFB_TIME_AVOID_DUPLICATE = 100;  // Milliseconds
 
 enum SonoffBridgeCommands {
   CMND_RFSYNC, CMND_RFLOW, CMND_RFHIGH, CMND_RFHOST, CMND_RFCODE };
@@ -228,6 +228,7 @@ void SonoffBridgeReceived(void)
       received_id = TasmotaGlobal.serial_in_buffer[7] << 16 | TasmotaGlobal.serial_in_buffer[8] << 8 | TasmotaGlobal.serial_in_buffer[9];
 
       unsigned long now = millis();
+      AddLog(LOG_LEVEL_DEBUG, PSTR("###HUJ!!!"));
       if (!((received_id == SnfBridge.last_received_id) && (now - SnfBridge.last_time < SFB_TIME_AVOID_DUPLICATE))) {
         SnfBridge.last_received_id = received_id;
         SnfBridge.last_time = now;
